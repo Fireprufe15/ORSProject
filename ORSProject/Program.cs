@@ -9,6 +9,7 @@ namespace ORSSimplexProject
     {
         static void Main(string[] args)
         {
+            string method = "";
             string enteredString = "", nameOfInputFile = "", nameOfOutputFile = "", newConvertedLine = "";
             List<string> textFileLines, convertedLines = new List<string>();
             string[] EnteredValues, breakupLine;
@@ -57,7 +58,28 @@ namespace ORSSimplexProject
                 }
 
             }
-
+            bool methodChosen = false;
+            while (!methodChosen)
+            {
+                Console.Clear();
+                Console.WriteLine("Which method should we use?\n1. Primal\n2. Dual\n\nPlease note that if you will be including IP restrictions you must use Dual.");
+                string input = Console.ReadLine();
+                if (input == "1")
+                {
+                    method = "primal";
+                    methodChosen = true;
+                }
+                else if (input == "2")
+                {
+                    method = "dual";
+                    methodChosen = true;
+                }
+                else
+                {
+                    Console.WriteLine("You entered an invalid selection, please try again!");
+                    Console.ReadKey();
+                }
+            }
             textFileLines = ReadFromFile(nameOfInputFile); //Calls up a method to read the input text file and returns a list of the lines from the text file.
 
             //Checks the last line of the values retrieved from the textfile to see if the LP contains a unrestricted-in-sign variable statement or negative variables.
@@ -170,7 +192,10 @@ namespace ORSSimplexProject
                                     }    
                                 }
                                 newConvertedLine += "-1 ";                                 //Adds the excess value to the standard form line
-                                newConvertedLine += "1 ";                                  //Adds the abstract value to the standard form line
+                                if (method == "Primal")
+                                {
+                                    newConvertedLine += "1 ";                                  //Adds the abstract value to the standard form line
+                                }
                                 amountOfVars++;                                            //Increases the amountOfVars variable by two, because of adding 2 new variables
                                 slackVarCollumnIndexes.Add(amountOfVars);
                                 excessVarCollumnIndexes.Add(amountOfVars);
@@ -179,7 +204,7 @@ namespace ORSSimplexProject
                                 amountVarsAdded++;
                                 artificialVariableLineIndexes.Add(i-countEquals);                      //Adds the row number and collumn of the added artifical variables to two lists made to contain these values.
                                 artificialVariableCollumnIndexes.Add(amountOfVars);
-                                hasArtificialVars = true;                                  //Indicates that the LP now has artificial values meaning it should be a 2 phase simplex method.
+                                hasArtificialVars = true;                                  //Indicates that the LP now has artificial values meaning it should be a 2 phase simplex method.                                
                                 break;
                             case "=":
                                 string newStringS = "";
