@@ -1,0 +1,15 @@
+E:\Development\C# Practice\ORSProject\ORSProject\bin\Debug\ORSProject.exe
+E:\Development\C# Practice\ORSProject\ORSProject\bin\Debug\ORSProject.pdb
+E:\Development\C# Practice\ORSProject\ORSProject\obj\x86\Debug\ORSProject.exe
+E:\Development\C# Practice\ORSProject\ORSProject\obj\x86\Debug\ORSProject.pdb
+E:\Development\C# Practice\ORSProject\ORSProject\obj\x86\Debug\ORSProject.csprojResolveAssemblyReference.cache
+G:\ORSProject\ORSProject\obj\x86\Debug\ORSProject.exe
+G:\ORSProject\ORSProject\obj\x86\Debug\ORSProject.pdb
+G:\ORSProject\ORSProject\bin\Debug\ORSProject.exe
+G:\ORSProject\ORSProject\bin\Debug\ORSProject.pdb
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\obj\x86\Debug\ORSProject.exe
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\obj\x86\Debug\ORSProject.pdb
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\bin\Debug\ORSProject.exe
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\bin\Debug\ORSProject.pdb
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\obj\x86\Debug\ORSProject.exe
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\obj\x86\Debug\ORSProject.pdb

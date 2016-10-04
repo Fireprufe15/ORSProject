@@ -1,0 +1,19 @@
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\obj\x86\Debug\ORSProject.exe
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\obj\x86\Debug\ORSProject.pdb
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\bin\Debug\ORSProject.exe
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\bin\Debug\ORSProject.pdb
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Potgieter_MG_ORS121_Project1_M_Chiruka\ORSProject\obj\x86\Debug\ORSSimplexProject.csprojResolveAssemblyReference.cache
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.exe
+G:\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.pdb
+I:\FLASHDRIVE CONTENT\YEAR 1\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.exe
+I:\FLASHDRIVE CONTENT\YEAR 1\ORS 121 (Operations research)\Potgieter_MG_ORS121_Project1_M_Chiruka\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.pdb
+E:\Development\C#\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.exe
+E:\Development\C#\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.pdb
+E:\Development\C#\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\bin\Debug\ORSProject.exe
+E:\Development\C#\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\bin\Debug\ORSProject.pdb
+E:\Development\C#\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSSimplexProject.csprojResolveAssemblyReference.cache
+C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.exe
+C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSProject.pdb
+C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\bin\Debug\ORSProject.exe
+C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\bin\Debug\ORSProject.pdb
+C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSSimplexProject.csprojResolveAssemblyReference.cache
