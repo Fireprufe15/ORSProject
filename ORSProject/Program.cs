@@ -1262,5 +1262,106 @@ namespace ORSSimplexProject
 
             return answer;
         }
+
+        static double[,] DualPhase(double[,] initialTable, string minOrMax)
+        {
+            int rhsCol = initialTable.GetLength(1);
+            int rows = initialTable.GetLength(0);
+            int pivotRow = 0;
+
+            bool optimal = DualPhaseOptimalityCheck(initialTable, ref pivotRow);
+            while (!optimal)
+            {
+                int pivotCol = GetPivotColumn(initialTable, pivotRow);
+                initialTable = GenericPivot(initialTable, pivotCol, pivotRow);
+                optimal = DualPhaseOptimalityCheck(initialTable, ref pivotRow);
+            }
+
+            return initialTable;
+
+        }
+
+        static bool DualPhaseOptimalityCheck(double[,] tableToCheck, ref int pivotRow)
+        {
+            bool optimal = true;
+            int rhsCol = tableToCheck.GetLength(1);
+            int rows = tableToCheck.GetLength(0);
+
+            for (int i = 1; i < rows; i++)
+            {
+                if (tableToCheck[i,rhsCol] < 0)
+                {
+                    optimal = false;
+                    if (tableToCheck[i, rhsCol] < tableToCheck[pivotRow, rhsCol])
+                    {
+                        pivotRow = i;
+                    }
+                }
+            }
+
+            return optimal;
+        }
+
+        static int GetPivotColumn(double[,] tableToCheck, int pivotRow)
+        {
+            int cols = tableToCheck.GetLength(1);
+            int pivotCol = 0;
+            double compareVal = Math.Abs(tableToCheck[0, 0] / tableToCheck[pivotRow, 0]);
+            for (int i = 0; i < cols-1; i++)
+            {
+                if (Math.Abs(tableToCheck[0, i] / tableToCheck[pivotRow, i]) < compareVal)
+                {
+                    pivotCol = i;
+                }
+            }
+            return pivotCol;
+        }
+
+        static double[,] GenericPivot(double[,] simplexTable, int enteringCollumn, int winningRow)
+        {
+            double divideValue;
+
+            int collumnCount = simplexTable.GetLength(1);
+            int rowCount = simplexTable.GetLength(0);
+            double[,] outputTable = new double[rowCount, collumnCount];
+
+            for (int i = 0; i < collumnCount; i++)
+            {
+                outputTable[winningRow, i] = simplexTable[winningRow, i] / simplexTable[winningRow, enteringCollumn];
+            }
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                if (i != winningRow)
+                {
+                    if (simplexTable[i, enteringCollumn] > 0)
+                    {
+                        divideValue = simplexTable[i, enteringCollumn];
+                        for (int j = 0; j < collumnCount; j++)
+                        {
+                            outputTable[i, j] = simplexTable[i, j] - outputTable[winningRow, j] * divideValue;
+
+                        }
+                    }
+                    else if (simplexTable[i, enteringCollumn] == 0)
+                    {
+                        for (int j = 0; j < collumnCount; j++)
+                        {
+                            outputTable[i, j] = simplexTable[i, j];
+                        }
+                    }
+                    else if (simplexTable[i, enteringCollumn] < 0)
+                    {
+                        divideValue = simplexTable[i, enteringCollumn];
+                        for (int j = 0; j < collumnCount; j++)
+                        {
+                            outputTable[i, j] = simplexTable[i, j] + outputTable[winningRow, j] * -divideValue;
+
+                        }
+                    }
+                }
+            }
+            return outputTable;
+        }
     }
 }
