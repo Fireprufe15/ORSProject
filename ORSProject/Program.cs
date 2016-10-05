@@ -184,27 +184,45 @@ namespace ORSSimplexProject
                         switch (breakupLine[j])
                         {
                             case ">=":
-                                if (amountVarsAdded > 0)
+                                if (method == "primal")
                                 {
-                                    for (int k = 0; k < amountVarsAdded; k++) //Adds zeroes for all the added variables (slacks, excesses and artificials) that don't apply to this row
+                                    if (amountVarsAdded > 0)
                                     {
-                                        newConvertedLine += "0 ";    
-                                    }    
-                                }
-                                newConvertedLine += "-1 ";                                 //Adds the excess value to the standard form line
-                                if (method == "Primal")
-                                {
+                                        for (int k = 0; k < amountVarsAdded; k++) //Adds zeroes for all the added variables (slacks, excesses and artificials) that don't apply to this row
+                                        {
+                                            newConvertedLine += "0 ";
+                                        }
+                                    }
+                                    newConvertedLine += "-1 ";                                 //Adds the excess value to the standard form line                     
                                     newConvertedLine += "1 ";                                  //Adds the abstract value to the standard form line
+                      
+                                    amountOfVars++;                                            //Increases the amountOfVars variable by two, because of adding 2 new variables
+                                    slackVarCollumnIndexes.Add(amountOfVars);
+                                    excessVarCollumnIndexes.Add(amountOfVars);
+                                    amountOfVars++;
+                                    amountVarsAdded++;                                         //This value is increased by two to indicate that two new variables not part of the original LP were added.
+                                    amountVarsAdded++;
+                                    artificialVariableLineIndexes.Add(i - countEquals);                      //Adds the row number and collumn of the added artifical variables to two lists made to contain these values.
+                                    artificialVariableCollumnIndexes.Add(amountOfVars);
+                                    hasArtificialVars = true;                                  //Indicates that the LP now has artificial values meaning it should be a 2 phase simplex method.    
+                                    break;
                                 }
-                                amountOfVars++;                                            //Increases the amountOfVars variable by two, because of adding 2 new variables
-                                slackVarCollumnIndexes.Add(amountOfVars);
-                                excessVarCollumnIndexes.Add(amountOfVars);
-                                amountOfVars++;
-                                amountVarsAdded++;                                         //This value is increased by two to indicate that two new variables not part of the original LP were added.
-                                amountVarsAdded++;
-                                artificialVariableLineIndexes.Add(i-countEquals);                      //Adds the row number and collumn of the added artifical variables to two lists made to contain these values.
-                                artificialVariableCollumnIndexes.Add(amountOfVars);
-                                hasArtificialVars = true;                                  //Indicates that the LP now has artificial values meaning it should be a 2 phase simplex method.                                
+                                if (method == "dual")
+                                {
+                                    if (amountVarsAdded > 0)
+                                    {
+                                        for (int k = 0; k < amountVarsAdded; k++) //Adds zeroes for all the added variables (slacks, excesses and artificials) that don't apply to this row
+                                        {
+                                            newConvertedLine += "0 ";
+                                        }
+                                    }
+                                    newConvertedLine += "-1 ";                                 //Adds the excess value to the standard form line  
+                                    amountOfVars++;
+                                    amountVarsAdded++;
+                                    slackVarCollumnIndexes.Add(amountOfVars);
+                                    excessVarCollumnIndexes.Add(amountOfVars);
+                                    break;                                    
+                                }                      
                                 break;
                             case "=":
                                 string newStringS = "";
@@ -298,6 +316,25 @@ namespace ORSSimplexProject
                     simplexTable[i, amountOfCollumns-1] = double.Parse(breakupLine[breakupLine.Length-1]);
                 }
                 initialSimplexTable = simplexTable;
+                if (method == "dual")
+                {
+                    foreach (var item in excessVarCollumnIndexes)
+                    {
+                        int excessRow = 0;
+                        for (int i = 0; i < initialSimplexTable.GetLength(0); i++)
+                        {
+                            if (initialSimplexTable[i, item] == -1)
+                            {
+                                excessRow = i;
+                                break;
+                            }
+                        }
+                        for (int i = 0; i < initialSimplexTable.GetLength(1); i++)
+                        {
+                            initialSimplexTable[excessRow, i] = -(initialSimplexTable[excessRow, i]);
+                        }
+                    }
+                }
                 firstSimplexTable = (double[,])simplexTable.Clone();
                 for (int i = 1; i < firstSimplexTable.GetLength(1); i++)
                 {
@@ -461,6 +498,11 @@ namespace ORSSimplexProject
                 }
                 initialSimplexTable = simplexTable;
 
+            }
+
+            if (method == "dual")
+            {
+                initialSimplexTable = DualPhase(initialSimplexTable, maxOrMin);
             }
 
             optimalityCheck = isSimplexOptimal(initialSimplexTable,maxOrMin);  //Checks if the simplex table is optimal
@@ -1309,14 +1351,14 @@ namespace ORSSimplexProject
         static bool DualPhaseOptimalityCheck(double[,] tableToCheck, ref int pivotRow)
         {
             bool optimal = true;
-            int rhsCol = tableToCheck.GetLength(1);
+            int rhsCol = tableToCheck.GetLength(1)-1;
             int rows = tableToCheck.GetLength(0);
 
             for (int i = 1; i < rows; i++)
             {
                 if (tableToCheck[i,rhsCol] < 0)
                 {
-                    optimal = false;
+                   optimal = false;
                     if (tableToCheck[i, rhsCol] < tableToCheck[pivotRow, rhsCol])
                     {
                         pivotRow = i;
@@ -1334,9 +1376,10 @@ namespace ORSSimplexProject
             double compareVal = Math.Abs(tableToCheck[0, 0] / tableToCheck[pivotRow, 0]);
             for (int i = 0; i < cols-1; i++)
             {
-                if (Math.Abs(tableToCheck[0, i] / tableToCheck[pivotRow, i]) < compareVal)
+                if (tableToCheck[pivotRow, i] < 0 && Math.Abs(tableToCheck[0, i] / tableToCheck[pivotRow, i]) < compareVal)
                 {
                     pivotCol = i;
+                    compareVal = Math.Abs(tableToCheck[0, i] / tableToCheck[pivotRow, i]);
                 }
             }
             return pivotCol;

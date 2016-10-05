@@ -9,21 +9,25 @@ min 50 100
 
 Optimal Solution
 ==============================
-Optimal Z Value = 320,00
-X1 = 3,60 X2 = 1,40 
+Optimal Z Value = 0.00
+X1 = 0.00 X2 = 0.00 
 
 Sensitivity Analysis:
 ==============================
 
 Basic Variable Coefficient Optimal Ranges:
- C1: -33,3333333333333 <= ∆ <= 300
- C2: -85,7142857142857 <= ∆ <= 200
  
 Non Basic Variable Coefficient Optimal Ranges:
+ C1: ∆ >= -50 
+ C2: ∆ >= -100 
  
 Constraint RHS Optimal Ranges:
- b1: -24 <= ∆ <= 56
- b2: -16 <= ∆ <= 144
+ b1: -28 <= ∆ <= ∞
+ b2: -24 <= ∆ <= ∞
  
 NBV Constraint Collumn Value Optimal Ranges:
+ A1.1: -∞ <= ∆ <= ∞
+ A1.2: -∞ <= ∆ <= ∞
+ A2.1: -∞ <= ∆ <= ∞
+ A2.2: -∞ <= ∆ <= ∞
  

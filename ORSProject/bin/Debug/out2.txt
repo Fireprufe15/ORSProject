@@ -1,0 +1,29 @@
+LP Report 
+============================== 
+
+Original LP
+==============================
+min 50 100
+7 2 >= 28
+2 12 >= 24
+
+Optimal Solution
+==============================
+Optimal Z Value = 320.00
+X1 = 3.60 X2 = 1.40 
+
+Sensitivity Analysis:
+==============================
+
+Basic Variable Coefficient Optimal Ranges:
+ C1: -33.3333333333333 <= ∆ <= 300
+ C2: -85.7142857142857 <= ∆ <= 200
+ 
+Non Basic Variable Coefficient Optimal Ranges:
+ 
+Constraint RHS Optimal Ranges:
+ b1: -56 <= ∆ <= 24
+ b2: -144 <= ∆ <= 16
+ 
+NBV Constraint Collumn Value Optimal Ranges:
+ 
