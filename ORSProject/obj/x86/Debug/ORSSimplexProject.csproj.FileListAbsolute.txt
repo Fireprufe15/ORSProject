@@ -17,3 +17,8 @@ C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source 
 C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\bin\Debug\ORSProject.exe
 C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\bin\Debug\ORSProject.pdb
 C:\Users\mgand\Downloads\ORS PROJECT MAIN\ORS PROJECT MAIN\Visual Studio Source Files\ORSProject\obj\x86\Debug\ORSSimplexProject.csprojResolveAssemblyReference.cache
+C:\Users\FireDev\Source\Repos\ORSProject\ORSProject\obj\x86\Debug\ORSProject.exe
+C:\Users\FireDev\Source\Repos\ORSProject\ORSProject\obj\x86\Debug\ORSProject.pdb
+C:\Users\FireDev\Source\Repos\ORSProject\ORSProject\bin\Debug\ORSProject.exe
+C:\Users\FireDev\Source\Repos\ORSProject\ORSProject\bin\Debug\ORSProject.pdb
+C:\Users\FireDev\Source\Repos\ORSProject\ORSProject\obj\x86\Debug\ORSSimplexProject.csprojResolveAssemblyReference.cache
